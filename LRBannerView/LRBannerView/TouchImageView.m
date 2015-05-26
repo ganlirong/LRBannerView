@@ -1,6 +1,6 @@
 //
 //  ImageView.m
-//  SinaWeibo
+//
 //
 //  Created by 甘 立荣 on 13-3-19.
 //  Copyright (c) 2013年 甘 立荣. All rights reserved.
