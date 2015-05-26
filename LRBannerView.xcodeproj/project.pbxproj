@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E09330C3F7C9AE4D11425D0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38486482A153E1923C11A834 /* libPods.a */; };
 		328569551B146B0D0028D938 /* LRBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 328569541B146B0D0028D938 /* LRBannerView.m */; };
+		328569581B1475BF0028D938 /* TouchImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 328569571B1475BF0028D938 /* TouchImageView.m */; };
 		32EDCF8C1B145B6500F8D261 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EDCF8B1B145B6500F8D261 /* main.m */; };
 		32EDCF8F1B145B6500F8D261 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EDCF8E1B145B6500F8D261 /* AppDelegate.m */; };
 		32EDCF921B145B6500F8D261 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EDCF911B145B6500F8D261 /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		328569531B146B0D0028D938 /* LRBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRBannerView.h; sourceTree = "<group>"; };
 		328569541B146B0D0028D938 /* LRBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRBannerView.m; sourceTree = "<group>"; };
+		328569561B1475BF0028D938 /* TouchImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchImageView.h; sourceTree = "<group>"; };
+		328569571B1475BF0028D938 /* TouchImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchImageView.m; sourceTree = "<group>"; };
 		32EDCF861B145B6500F8D261 /* LRBannerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LRBannerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32EDCF8A1B145B6500F8D261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32EDCF8B1B145B6500F8D261 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,6 +72,8 @@
 		32AA707E1B1462360070664C /* LRBannerView */ = {
 			isa = PBXGroup;
 			children = (
+				328569561B1475BF0028D938 /* TouchImageView.h */,
+				328569571B1475BF0028D938 /* TouchImageView.m */,
 				328569531B146B0D0028D938 /* LRBannerView.h */,
 				328569541B146B0D0028D938 /* LRBannerView.m */,
 			);
@@ -292,6 +297,7 @@
 				32EDCF921B145B6500F8D261 /* ViewController.m in Sources */,
 				32EDCF8F1B145B6500F8D261 /* AppDelegate.m in Sources */,
 				32EDCF8C1B145B6500F8D261 /* main.m in Sources */,
+				328569581B1475BF0028D938 /* TouchImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
