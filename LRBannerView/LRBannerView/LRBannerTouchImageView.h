@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void(^imageBlock)(void);
+typedef void(^LRBannerTouchBlock)(void);
 
-@interface TouchImageView : UIImageView
+@interface LRBannerTouchImageView : UIImageView
 
-@property (nonatomic,copy)imageBlock touchBlock;
+@property (nonatomic,copy) LRBannerTouchBlock touchBlock;
 
 @end

@@ -31,7 +31,7 @@
     NSMutableArray *viewsArray = [NSMutableArray arrayWithObjects:@"http://pimg1.126.net/caipiao_info/images/headFigure/appad/1431931708669_1.jpg", @"http://pimg1.126.net/caipiao_info/images/headFigure/appad/1431931708781_2.jpg",@"http://pimg1.126.net/caipiao_info/images/headFigure/appad/1431338659702_1.jpg" ,@"http://pimg1.126.net/caipiao_info/images/headFigure/appad/1431338659745_2.jpg", nil];
     
     LRBannerView *bannerView = [[LRBannerView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 150)
-                                                   scrollDirection:LRScrollDirectionHorizontal
+                                                   scrollDirection:LRBannerScrollDirectionHorizontal
                                                             images:viewsArray];
     [bannerView setRollingDelayTime:4.0];
     [bannerView setPageControlStyle:PageStyle_Middle];

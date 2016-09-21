@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 甘 立荣. All rights reserved.
 //
 
-#import "TouchImageView.h"
+#import "LRBannerTouchImageView.h"
 
-@implementation TouchImageView
+@implementation LRBannerTouchImageView
 
 - (id)initWithFrame:(CGRect)frame
 {

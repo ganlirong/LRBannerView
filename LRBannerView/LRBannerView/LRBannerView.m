@@ -9,7 +9,7 @@
 #import "LRBannerView.h"
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
-#import "TouchImageView.h"
+#import "LRBannerTouchImageView.h"
 
 
 static const NSUInteger BannerStartTag = 10000;
@@ -18,7 +18,7 @@ static const NSUInteger BannerViewCount = 3;
 @implementation LRBannerView
 
 - (id)initWithFrame:(CGRect)frame
-    scrollDirection:(LRScrollDirection)direction
+    scrollDirection:(LRBannerScrollDirection)direction
              images:(NSArray *)images {
     
     self = [super initWithFrame:frame];
@@ -37,26 +37,26 @@ static const NSUInteger BannerViewCount = 3;
         [self addSubview:_scrollView];
         
         // 在水平方向滚动
-        if(_scrollDirection == LRScrollDirectionHorizontal) {
+        if(_scrollDirection == LRBannerScrollDirectionHorizontal) {
             _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width*BannerViewCount,
                                                  _scrollView.frame.size.height);
-        } else if (_scrollDirection == LRScrollDirectionVertical) { // 在垂直方向滚动
+        } else if (_scrollDirection == LRBannerScrollDirectionVertical) { // 在垂直方向滚动
             _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width,
                                                  _scrollView.frame.size.height*BannerViewCount);
         }
         
         for (NSInteger i = 0; i < BannerViewCount; i++) {
             
-            TouchImageView *imageView = [[TouchImageView alloc] initWithFrame:_scrollView.bounds];
+            LRBannerTouchImageView *imageView = [[LRBannerTouchImageView alloc] initWithFrame:_scrollView.bounds];
             imageView.userInteractionEnabled = YES;
             imageView.tag = BannerStartTag + i;
             imageView.touchBlock = ^{
                 [self touchAction];
             };
             // 水平滚动
-            if (_scrollDirection == LRScrollDirectionHorizontal) {
+            if (_scrollDirection == LRBannerScrollDirectionHorizontal) {
                 imageView.frame = CGRectOffset(imageView.frame, _scrollView.frame.size.width*i, 0);
-            } else if (_scrollDirection == LRScrollDirectionVertical) {// 垂直滚动
+            } else if (_scrollDirection == LRBannerScrollDirectionVertical) {// 垂直滚动
                 imageView.frame = CGRectOffset(imageView.frame, 0, _scrollView.frame.size.height*i);
             }
             
@@ -77,7 +77,7 @@ static const NSUInteger BannerViewCount = 3;
     return self;
 }
 
-- (void)reloadBannerWithData:(NSArray *)images{
+- (void)reloadBannerWithData:(NSArray *)images {
     
     if (self.enableScroll){
         [self stopScroll];
@@ -172,9 +172,9 @@ static const NSUInteger BannerViewCount = 3;
     }
     
     // 水平滚动
-    if (_scrollDirection == LRScrollDirectionHorizontal) {
+    if (_scrollDirection == LRBannerScrollDirectionHorizontal) {
         _scrollView.contentOffset = CGPointMake(_scrollView.frame.size.width, 0);
-    } else if (_scrollDirection == LRScrollDirectionVertical) {    // 垂直滚动
+    } else if (_scrollDirection == LRBannerScrollDirectionVertical) {    // 垂直滚动
         _scrollView.contentOffset = CGPointMake(0, _scrollView.frame.size.height);
     }
     
@@ -222,7 +222,7 @@ static const NSUInteger BannerViewCount = 3;
     }
     
     // 水平滚动
-    if(_scrollDirection == LRScrollDirectionHorizontal) {
+    if(_scrollDirection == LRBannerScrollDirectionHorizontal) {
         //下一张
         if (x >= _scrollView.frame.size.width*2) {
             _currentPage = [self getPageIndex:_currentPage + 1];
@@ -233,7 +233,7 @@ static const NSUInteger BannerViewCount = 3;
             _currentPage = [self getPageIndex:_currentPage - 1];
             [self refreshScrollView];
         }
-    } else if (_scrollDirection == LRScrollDirectionVertical) {    // 垂直滚动
+    } else if (_scrollDirection == LRBannerScrollDirectionVertical) {    // 垂直滚动
         //下一张
         if (y >= _scrollView.frame.size.height*2) {
             _currentPage = [self getPageIndex:_currentPage + 1];
@@ -251,9 +251,9 @@ static const NSUInteger BannerViewCount = 3;
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)aScrollView {
     
     // 水平滚动
-    if (_scrollDirection == LRScrollDirectionHorizontal) {
+    if (_scrollDirection == LRBannerScrollDirectionHorizontal) {
         _scrollView.contentOffset = CGPointMake(_scrollView.frame.size.width, 0);
-    } else if (_scrollDirection == LRScrollDirectionVertical) { //// 垂直滚动
+    } else if (_scrollDirection == LRBannerScrollDirectionVertical) { //// 垂直滚动
         _scrollView.contentOffset = CGPointMake(0, _scrollView.frame.size.height);
     }
     
@@ -284,9 +284,9 @@ static const NSUInteger BannerViewCount = 3;
     
     [UIView animateWithDuration:0.25 animations:^{
         // 水平滚动
-        if(_scrollDirection == LRScrollDirectionHorizontal) {
+        if(_scrollDirection == LRBannerScrollDirectionHorizontal) {
             _scrollView.contentOffset = CGPointMake(1.99*_scrollView.frame.size.width, 0);
-        } else if (_scrollDirection == LRScrollDirectionVertical) {// 垂直滚动
+        } else if (_scrollDirection == LRBannerScrollDirectionVertical) {// 垂直滚动
             _scrollView.contentOffset = CGPointMake(0, 1.99*_scrollView.frame.size.height);
         }
     } completion:^(BOOL finished) {
@@ -314,7 +314,7 @@ static const NSUInteger BannerViewCount = 3;
     
 }
 
-- (void)downImageSuccess{
+- (void)downImageSuccess {
     _totalCount--;
     if (_totalCount == 0){
         _currentPage = 1;
@@ -327,7 +327,7 @@ static const NSUInteger BannerViewCount = 3;
     
 }
 
-- (void)downImageFailed{
+- (void)downImageFailed {
     
     _totalCount--;
     if (_totalCount == 0){

@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "UIImageView+WebCache.h"
 
-typedef NS_ENUM(NSInteger, LRScrollDirection) {
+typedef NS_ENUM(NSInteger, LRBannerScrollDirection) {
     // 水平滚动
-    LRScrollDirectionHorizontal,
+    LRBannerScrollDirectionHorizontal,
     // 垂直滚动
-    LRScrollDirectionVertical
+    LRBannerScrollDirectionVertical
 };
 
 typedef NS_ENUM(NSInteger, BannerViewPageStyle) {
@@ -37,7 +37,7 @@ typedef void(^DidSelectImageBlock)(NSInteger);
 }
 
 @property (nonatomic, strong) NSArray *imagesArray;// 存放所有需要滚动的图片URL NSString
-@property (nonatomic, assign) LRScrollDirection scrollDirection;// scrollView滚动的方向
+@property (nonatomic, assign) LRBannerScrollDirection scrollDirection;// scrollView滚动的方向
 @property (nonatomic, assign) NSTimeInterval rollingDelayTime;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, assign) BOOL enableScroll;
@@ -46,7 +46,7 @@ typedef void(^DidSelectImageBlock)(NSInteger);
 @property (nonatomic, copy) DidSelectImageBlock didSelectImageBlock;
 
 - (id)initWithFrame:(CGRect)frame
-    scrollDirection:(LRScrollDirection)direction
+    scrollDirection:(LRBannerScrollDirection)direction
              images:(NSArray *)images;
 
 - (void)reloadBannerWithData:(NSArray *)images;
